@@ -3,12 +3,13 @@ namespace OctoType.Utils {
     
     public static class TimeUtils {
 
+        private static float timer;
         public static float Timer {
             get {
-                return Timer;
+                return timer;
             }
             set {
-                Timer = value;
+                timer = value;
             }
         }
     }
