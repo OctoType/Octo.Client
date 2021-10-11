@@ -13,6 +13,7 @@
     <None Remove="Icon.ico" />
     <None Remove="Icon.bmp" />
     <None Remove="Utils\" />
+    <None Remove="Audio\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -30,5 +31,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utils\" />
+    <Folder Include="Audio\" />
   </ItemGroup>
 </Project>

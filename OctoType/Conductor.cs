@@ -2,10 +2,15 @@
 using OctoType.Utils;
 namespace OctoType {
     public class Conductor {
-        public float songTime { set; get; }
-        private float startTime;
-        public float bpm { set; get; }
-        public float offset { set; get; }
+
+        private float songTime;
+        public float SongTime { set; get; }
+        private float bpm;
+        public float Bpm { set; get; }
+        private float offset;
+        public float Offset { set; private get; }
+
+        private float previousFrameTime;
         private int barNum;
 
         public Conductor(float bpm, float offset) {
@@ -16,12 +21,13 @@ namespace OctoType {
         }
 
         public void startSong() {
-
+            previousFrameTime = TimeUtils.Timer;
         }
 
         // call this every frame
         public void updateSongTime() {
             startTime = TimeUtils.Timer;
+
         }
     }
 }
