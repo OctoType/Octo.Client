@@ -26,8 +26,7 @@ namespace OctoType {
 
         // call this every frame
         public void updateSongTime() {
-            startTime = TimeUtils.Timer;
-
+            this.SongTime = TimeUtils.Timer - previousFrameTime;
         }
     }
 }
