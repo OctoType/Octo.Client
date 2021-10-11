@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using OctoType.Utils;
+using System;
 
 namespace OctoType {
 
@@ -35,7 +36,7 @@ namespace OctoType {
             // TODO: Add your update logic here
             // Updating game time
             TimeUtils.Timer = (float)gameTime.TotalGameTime.TotalMilliseconds;
-
+            Console.Write(TimeUtils.Timer);
             base.Update(gameTime);
         }
 
