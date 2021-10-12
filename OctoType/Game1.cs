@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using OctoType.Utils;
+using OctoType.Screens;
 using System;
 
 namespace OctoType {
@@ -27,6 +28,7 @@ namespace OctoType {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            ScreenManager.Instance.LoadContent();
         }
 
         protected override void Update(GameTime gameTime) {
@@ -36,7 +38,8 @@ namespace OctoType {
             // TODO: Add your update logic here
             // Updating game time
             TimeUtils.Timer = (float)gameTime.TotalGameTime.TotalMilliseconds;
-            
+            ScreenManager.Instance.Update();
+
             base.Update(gameTime);
         }
 
@@ -44,7 +47,7 @@ namespace OctoType {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
+            ScreenManager.Instance.Draw();
             base.Draw(gameTime);
         }
     }
