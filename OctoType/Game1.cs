@@ -36,7 +36,7 @@ namespace OctoType {
             // TODO: Add your update logic here
             // Updating game time
             TimeUtils.Timer = (float)gameTime.TotalGameTime.TotalMilliseconds;
-            Console.WriteLine(TimeUtils.Timer);
+            
             base.Update(gameTime);
         }
 
