@@ -1,39 +1,42 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace OctoType.Screens {
 
-    public interface IScreen {
+    public abstract class Screen {
 
-        public bool IsLoaded { get; set; }
+        public bool IsLoaded { get; internal set; }
 
         /// <summary>
         /// Updates the status of the contents of the screen
         /// </summary>
-        public void Update();
+        public abstract void Update();
 
         /// <summary>
         /// Drawing the contents of the screen
         /// </summary>
-        public void Draw();
+        public abstract void Draw();
 
         /// <summary>
         /// Loads all assets involved in the screen
         /// </summary>
-        public void LoadContent();
+        public abstract void LoadContent();
 
         /// <summary>
         /// Unloads all the assets involved in the screen
         /// </summary>
-        public void UnloadContent();
+        public abstract void UnloadContent();
 
         /// <summary>
         /// Code to run upon exiting the screen
         /// </summary>
-        public void OnExit();
+        public abstract void OnExit();
 
         /// <summary>
         /// Code to run upon suspending the screen
         /// </summary>
-        public void OnSuspend();
+        public abstract void OnSuspend();
     }
 }

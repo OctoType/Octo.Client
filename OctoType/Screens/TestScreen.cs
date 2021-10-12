@@ -1,33 +1,31 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+
 namespace OctoType.Screens {
-    public class TestScreen : IScreen{
+    public class TestScreen : Screen {
 
-        private bool isLoaded;
-
-        bool IScreen.IsLoaded { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        void IScreen.Draw() {
-            throw new NotImplementedException();
+        public override void Draw() {
         }
 
-        void IScreen.LoadContent() {
-            throw new NotImplementedException();
+        public override void LoadContent() {
+            base.LoadContent();
+            this.IsLoaded = true;
         }
 
-        void IScreen.OnExit() {
-            throw new NotImplementedException();
+        public override void UnloadContent() {
+            base.UnloadContent();
+            this.IsLoaded = false;
         }
 
-        void IScreen.OnSuspend() {
-            throw new NotImplementedException();
+        public override void OnExit() {
         }
 
-        void IScreen.UnloadContent() {
-            throw new NotImplementedException();
+        public override void OnSuspend() {
         }
 
-        void IScreen.Update() {
-            throw new NotImplementedException();
+        public override void Update() { 
         }
     }
 }

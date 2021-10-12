@@ -19,19 +19,19 @@ namespace OctoType.Screens {
                 return instance;
             }
         }
+        public ContentManager Content { private set; get; }
+        public Vector2 Dimensions { private set; get; }
+        private List<Screen> activeScreens = new List<Screen>();
+        private Stack<Screen> ScreenStack = new Stack<Screen>();
 
         public ScreenManager() {
-            Dimensions = new Vector2(1600,900);
+            Dimensions = new Vector2(1600, 900);
         }
-        
-        public Vector2 Dimensions { private set; get; }
-        private List<IScreen> activeScreens = new List<IScreen>();
-        private Stack<IScreen> ScreenStack = new Stack<IScreen>();
 
         /// <summary>
         /// Adds a screen to be managed by the screen manager
         /// </summary>
-        public void AddScreen(IScreen screen) {
+        public void AddScreen(Screen screen) {
             activeScreens.Add(screen);
             ScreenStack.Push(screen);
         }
@@ -45,36 +45,27 @@ namespace OctoType.Screens {
         }
 
         /// <summary>
-        /// Loads resources for all currently managed screens
+        /// Loads resources
         /// </summary>
-        public void LoadAllContent() {
-            foreach(IScreen screen in activeScreens) {
-                screen.LoadContent();
-            }
+        public void LoadContent(ContentManager Content) {
+            this.Content = new ContentManager(Content.ServiceProvider, "Content");
         }
 
         /// <summary>
-        /// Loads resources for an individual screen
+        /// Unload resources
         /// </summary>
-        public void LoadContent(IScreen screen) {
-            screen.LoadContent();
-        }
-
-        /// <summary>
-        /// Unload resources for an individual screen
-        /// </summary>
-        public void UnloadContent(IScreen screen) {
+        public void UnloadContent() {
             screen.UnloadContent();
         }
 
         public void Update() {
-            foreach(IScreen screen in activeScreens) {
+            foreach(Screen screen in activeScreens) {
                 screen.Update();
             }
         }
 
         public void Draw() {
-            foreach(IScreen screen in activeScreens) {
+            foreach(Screen screen in activeScreens) {
                 screen.Draw();
             }
         }
