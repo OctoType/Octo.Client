@@ -27,8 +27,8 @@ namespace OctoType {
         /// Keeps track of whether or not the song is playing (may be put into
         /// audio manager)
         /// </summary>
-        private Boolean isPlaying;
-        public Boolean IsPlaying { private set; get; }
+        private bool isPlaying;
+        public bool IsPlaying { private set; get; }
 
         private float previousFrameTime;
         private int barNum;

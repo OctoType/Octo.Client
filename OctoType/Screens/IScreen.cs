@@ -4,7 +4,7 @@ namespace OctoType.Screens {
 
     public interface IScreen {
 
-        public Boolean IsLoaded { get; set; }
+        public bool IsLoaded { get; set; }
 
         /// <summary>
         /// Updates the status of the contents of the screen

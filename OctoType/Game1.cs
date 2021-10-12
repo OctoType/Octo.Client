@@ -23,6 +23,9 @@ namespace OctoType {
             _graphics.PreferredBackBufferWidth = (int)ScreenManager.Instance.Dimensions.X;
             _graphics.PreferredBackBufferHeight = (int)ScreenManager.Instance.Dimensions.Y;
             _graphics.ApplyChanges();
+
+            // TODO: This is for testing only, remove this line later
+            ScreenManager.Instance.AddScreen(new TestScreen());
             base.Initialize();
         }
 
