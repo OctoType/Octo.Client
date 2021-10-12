@@ -1,39 +1,39 @@
 ﻿using System;
+
 namespace OctoType.Screens {
+
     public interface IScreen {
-        /// <summary>
-        /// Whether this <see cref="IScreen"/> can be resumed.
-        /// </summary>
-        bool ValidForResume { get; set; }
+
+        public Boolean IsLoaded { get; set; }
 
         /// <summary>
-        /// Whether this <see cref="IScreen"/> can be pushed.
+        /// Updates the status of the contents of the screen
         /// </summary>
-        bool ValidForPush { get; set; }
+        public void Update();
 
         /// <summary>
-        /// Invoked when this <see cref="IScreen"/> is entering from a parent <see cref="IScreen"/>.
+        /// Drawing the contents of the screen
         /// </summary>
-        /// <param name="last">The <see cref="IScreen"/> which has suspended.</param>
-        void OnEntering(IScreen last);
+        public void Draw();
 
         /// <summary>
-        /// Invoked when this <see cref="IScreen"/> is exiting to a parent <see cref="IScreen"/>.
+        /// Loads all assets involved in the screen
         /// </summary>
-        /// <param name="next">The <see cref="IScreen"/> that will be resumed next.</param>
-        /// <returns>True to cancel the exit process.</returns>
-        bool OnExiting(IScreen next);
+        public void LoadContent();
 
         /// <summary>
-        /// Invoked when this <see cref="IScreen"/> is entered from a child <see cref="IScreen"/>.
+        /// Unloads all the assets involved in the screen
         /// </summary>
-        /// <param name="last">The next Screen.</param>
-        void OnResuming(IScreen last);
+        public void UnloadContent();
 
         /// <summary>
-        /// Invoked when this <see cref="IScreen"/> is exited to a child <see cref="IScreen"/>.
+        /// Code to run upon exiting the screen
         /// </summary>
-        /// <param name="next">The new Screen</param>
-        void OnSuspending(IScreen next);
+        public void OnExit();
+
+        /// <summary>
+        /// Code to run upon suspending the screen
+        /// </summary>
+        public void OnSuspend();
     }
 }

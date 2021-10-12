@@ -30,7 +30,7 @@ namespace OctoType {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            ScreenManager.Instance.LoadContent();
+            ScreenManager.Instance.LoadAllContent();
         }
 
         protected override void Update(GameTime gameTime) {
