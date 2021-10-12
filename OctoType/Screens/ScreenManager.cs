@@ -19,6 +19,10 @@ namespace OctoType.Screens {
             }
         }
 
+        public ScreenManager() {
+            Dimensions = new Vector2(1600,900);
+        }
+
         public Vector2 Dimensions { private set; get; }
 
         public void LoadContent() {

@@ -20,7 +20,9 @@ namespace OctoType {
 
         protected override void Initialize() {
             // TODO: Add your initialization logic here
-
+            _graphics.PreferredBackBufferWidth = (int)ScreenManager.Instance.Dimensions.X;
+            _graphics.PreferredBackBufferHeight = (int)ScreenManager.Instance.Dimensions.Y;
+            _graphics.ApplyChanges();
             base.Initialize();
         }
 
