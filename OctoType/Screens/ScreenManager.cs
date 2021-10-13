@@ -19,7 +19,7 @@ namespace OctoType.Screens {
                 return instance;
             }
         }
-        public ContentManager Content { private set; get; }
+        
         public Vector2 Dimensions { private set; get; }
         private List<Screen> activeScreens = new List<Screen>();
         private Stack<Screen> ScreenStack = new Stack<Screen>();
@@ -45,16 +45,24 @@ namespace OctoType.Screens {
         }
 
         /// <summary>
-        /// Loads resources
+        /// Loads resources for screen into memory
         /// </summary>
-        public void LoadContent(ContentManager Content) {
-            this.Content = new ContentManager(Content.ServiceProvider, "Content");
+        public void LoadContent(Screen screen) {
+            screen.LoadContent();
+        }
+        /// <summary>
+        /// Loads all resources for all active screens into memory
+        /// </summary>
+        public void LoadAllContent() {
+            foreach(Screen screen in activeScreens) {
+                screen.LoadContent();
+            }
         }
 
         /// <summary>
-        /// Unload resources
+        /// Unload resources for screen (free memory)
         /// </summary>
-        public void UnloadContent() {
+        public void UnloadContent(Screen screen) {
             screen.UnloadContent();
         }
 

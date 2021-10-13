@@ -22,12 +22,16 @@ namespace OctoType.Screens {
         /// <summary>
         /// Loads all assets involved in the screen
         /// </summary>
-        public abstract void LoadContent();
+        public virtual void LoadContent() {
+            this.IsLoaded = true;
+        }
 
         /// <summary>
         /// Unloads all the assets involved in the screen
         /// </summary>
-        public abstract void UnloadContent();
+        public virtual void UnloadContent() {
+            this.IsLoaded = false;
+        }
 
         /// <summary>
         /// Code to run upon exiting the screen

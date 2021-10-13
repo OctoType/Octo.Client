@@ -10,12 +10,10 @@ namespace OctoType.Screens {
         }
 
         public override void LoadContent() {
-            base.LoadContent();
             this.IsLoaded = true;
         }
 
         public override void UnloadContent() {
-            base.UnloadContent();
             this.IsLoaded = false;
         }
 
