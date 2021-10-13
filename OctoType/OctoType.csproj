@@ -13,7 +13,6 @@
     <None Remove="Icon.ico" />
     <None Remove="Icon.bmp" />
     <None Remove="Utils\" />
-    <None Remove="Audio\" />
     <None Remove="Screens\" />
     <None Remove="Files\" />
   </ItemGroup>
@@ -33,7 +32,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utils\" />
-    <Folder Include="Audio\" />
     <Folder Include="Screens\" />
     <Folder Include="Files\" />
   </ItemGroup>
