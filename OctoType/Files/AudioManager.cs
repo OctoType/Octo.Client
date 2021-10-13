@@ -10,7 +10,7 @@ namespace OctoType.Audio {
         }
 
         public override void LoadFile(string name, string path) {
-            
+            throw new NotImplementedException();
         }
     }
 }
