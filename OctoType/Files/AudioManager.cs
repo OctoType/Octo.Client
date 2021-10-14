@@ -1,5 +1,6 @@
 ﻿using System;
 using OctoType.Files;
+using Microsoft.Xna.Framework.Media;
 
 namespace OctoType.Audio {
 
@@ -10,7 +11,9 @@ namespace OctoType.Audio {
         }
 
         public override void LoadFile(string name, string path) {
-            throw new NotImplementedException();
+            Uri uri = new Uri(path);
+            Song song = Song.FromUri(name, uri);
+            MediaPlayer.Play(song);
         }
     }
 }

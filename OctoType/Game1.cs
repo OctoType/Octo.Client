@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using OctoType.Utils;
 using OctoType.Screens;
+using OctoType.Audio;
 using System;
 
 namespace OctoType {
@@ -10,10 +11,12 @@ namespace OctoType {
     public class Game1 : Game {
 
         private GraphicsDeviceManager _graphics;
+        private AudioManager _audio;
         private SpriteBatch _spriteBatch;
 
         public Game1() {
             _graphics = new GraphicsDeviceManager(this);
+            _audio = new AudioManager();
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
