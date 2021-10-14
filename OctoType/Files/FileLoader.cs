@@ -6,7 +6,7 @@ namespace OctoType.Files {
 
 	public abstract class FileLoader {
 
-		private Dictionary<String, Object> data;
+		protected Dictionary<String, Object> data;
 
 		public FileLoader() {
 			data = new Dictionary<String, Object>();

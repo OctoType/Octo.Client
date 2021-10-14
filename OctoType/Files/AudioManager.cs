@@ -6,14 +6,13 @@ namespace OctoType.Audio {
 
     public class AudioManager : FileLoader {
 
-        public AudioManager() {
-            
+        public AudioManager() : base() {
         }
 
         public override void LoadFile(string name, string path) {
             Uri uri = new Uri(path);
             Song song = Song.FromUri(name, uri);
-            MediaPlayer.Play(song);
+            data.Add(name, song);
         }
     }
 }
