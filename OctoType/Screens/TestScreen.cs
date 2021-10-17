@@ -17,7 +17,7 @@ namespace OctoType.Screens {
         public override void LoadContent()
         {
             _audio = new AudioManager();
-            _audio.LoadFile("song.ogg", "/Users/fakebear/Projects/OctoType/Charts/TestMap1/song.ogg");
+            _audio.LoadFile("song.ogg", "../../../../Charts/TestMap1/song.ogg");
             this.IsLoaded = true;
         }
 
