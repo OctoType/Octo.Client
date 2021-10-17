@@ -21,6 +21,7 @@ namespace OctoType.Files {
 		public void UnloadAllFiles() {
 			data.Clear();
         }
+
 		public Object GetFile(String name) {
 			try {
 				return data[name];
