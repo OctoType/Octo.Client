@@ -28,7 +28,7 @@ namespace OctoType.Audio {
         /// Plays a song with name. The 
         /// </summary>
         public void playSong(string name) {
-            if(name.Contains(""))
+            if(!name.Contains(SONG))
             MediaPlayer.Play((Song) data[name]);
         }
 
@@ -37,6 +37,10 @@ namespace OctoType.Audio {
         }
 
         public void stop() {
+
+        }
+
+        public void resume() {
 
         }
     }
