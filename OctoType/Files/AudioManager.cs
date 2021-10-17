@@ -55,6 +55,9 @@ namespace OctoType.Audio {
             MediaPlayer.Resume();
         }
 
+        public float GetSongPosition() {
+            return (float) MediaPlayer.PlayPosition.TotalMilliseconds;
+        }
         public void PlaySoundEffect(string name) {
             SoundEffect soundEffect = (SoundEffect) data[name];
             soundEffect.Play();

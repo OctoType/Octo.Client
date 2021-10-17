@@ -32,12 +32,11 @@ namespace OctoType.Screens {
         }
 
         public override void Update() {
-            if (!isPlaying)
-            {
-                Song song = (Song) _audio.GetFile("song.ogg");
-                Console.WriteLine(song.Name);
-                MediaPlayer.Play(song);
+            if (!isPlaying) {
                 isPlaying = true;
+                _audio.PlaySong("song.ogg");
+            } else {
+                Console.WriteLine(_audio.GetSongPosition());
             }
         }
     }

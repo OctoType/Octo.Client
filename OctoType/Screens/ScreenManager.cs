@@ -25,7 +25,7 @@ namespace OctoType.Screens {
         private Stack<Screen> ScreenStack = new Stack<Screen>();
 
         public ScreenManager() {
-            Dimensions = new Vector2(1600, 900);
+            Dimensions = new Vector2(800, 600);
         }
 
         /// <summary>
