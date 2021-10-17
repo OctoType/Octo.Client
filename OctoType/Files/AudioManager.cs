@@ -56,7 +56,8 @@ namespace OctoType.Audio {
         }
 
         public void PlaySoundEffect(string name) {
-
+            SoundEffect soundEffect = (SoundEffect) data[name];
+            soundEffect.Play();
         }
     }
 }
