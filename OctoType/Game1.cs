@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using OctoType.Utils;
 using OctoType.Screens;
-using OctoType.Audio;
 using System;
 
 namespace OctoType {
