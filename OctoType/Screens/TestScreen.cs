@@ -1,9 +1,6 @@
 ﻿using System;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Media;
 using OctoType.Audio;
+using Microsoft.Xna.Framework.Input;
 
 namespace OctoType.Screens {
     public class TestScreen : Screen
@@ -18,6 +15,7 @@ namespace OctoType.Screens {
         {
             _audio = new AudioManager();
             _audio.LoadFile("song.ogg", "../../../../Charts/TestMap1/song.ogg");
+            _audio.LoadFile("hitsound.wav", "../../../../Charts/TestMap1/hitsound.wav");
             this.IsLoaded = true;
         }
 
@@ -37,6 +35,9 @@ namespace OctoType.Screens {
                 _audio.PlaySong("song.ogg");
             } else {
                 Console.WriteLine(_audio.GetSongPosition());
+            }
+            if(Keyboard.GetState().IsKeyDown(Keys.A)) {
+                _audio.PlaySoundEffect("hitsound.wav");
             }
         }
     }

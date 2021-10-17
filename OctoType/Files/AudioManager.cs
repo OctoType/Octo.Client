@@ -22,10 +22,12 @@ namespace OctoType.Audio {
         /// </summary>
         public override void LoadFile(string name, string path) {
             if(StringUtils.Normalize(name).Contains(SONG)) {
+                Console.WriteLine("loading SONG, " + name);
                 Uri uri = new Uri(path, UriKind.Relative);
                 Song song = Song.FromUri(name, uri);
                 data.Add(name, song);
             } else {
+                Console.WriteLine("loading SOUND EFFECT, " + name);
                 SoundEffect soundEffect = SoundEffect.FromFile(path);
                 data.Add(name, soundEffect);
             }
