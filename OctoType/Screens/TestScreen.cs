@@ -17,7 +17,7 @@ namespace OctoType.Screens {
         public override void LoadContent()
         {
             _audio = new AudioManager();
-            _audio.LoadFile("blueberry.mp3", "D:\\J\\Music\\blueberry.mp3");
+            _audio.LoadFile("song.ogg", "/Users/fakebear/Projects/OctoType/Charts/TestMap1/song.ogg");
             this.IsLoaded = true;
         }
 
@@ -34,7 +34,8 @@ namespace OctoType.Screens {
         public override void Update() {
             if (!isPlaying)
             {
-                Song song = (Song) _audio.GetFile("blueberry.mp3");
+                Song song = (Song) _audio.GetFile("song.ogg");
+                Console.WriteLine(song.Name);
                 MediaPlayer.Play(song);
                 isPlaying = true;
             }

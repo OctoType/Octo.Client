@@ -22,7 +22,13 @@ namespace OctoType.Files {
 			data.Clear();
         }
 		public Object GetFile(String name) {
-			return data[name];
+			try {
+				return data[name];
+			} catch(KeyNotFoundException ex) {
+				Console.WriteLine("ERR: GetFile line 26 " + name + " not found.");
+				Console.WriteLine(ex.ToString());
+				return null;
+            }
         }
 	}
 }

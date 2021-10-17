@@ -11,6 +11,7 @@ namespace OctoType.Audio {
 
         public override void LoadFile(string name, string path) {
             Uri uri = new Uri(path);
+            Console.WriteLine("*LOG: Loading file for " + path + "*");
             Song song = Song.FromUri(name, uri);
             data.Add(name, song);
         }
