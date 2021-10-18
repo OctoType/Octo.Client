@@ -6,16 +6,16 @@ namespace OctoType.Inputs {
 
     public abstract class InputHandler {
 
-        protected List<string> HeldKeys;
-        protected List<string> PressedKeys;
-        protected List<string> LiftedKeys;
-        private List<string> newKeysDown = new List<string>();
+        protected HashSet<string> HeldKeys;
+        protected HashSet<string> PressedKeys;
+        protected HashSet<string> LiftedKeys;
+        private HashSet<string> newKeysDown = new HashSet<string>();
 
         public InputHandler() {
-            HeldKeys = new List<string>();
-            PressedKeys = new List<string>();
-            LiftedKeys = new List<string>();
-            newKeysDown = new List<string>();
+            HeldKeys = new HashSet<string>();
+            PressedKeys = new HashSet<string>();
+            LiftedKeys = new HashSet<string>();
+            newKeysDown = new HashSet<string>();
         }
 
         public virtual void Update() {
@@ -26,18 +26,37 @@ namespace OctoType.Inputs {
                 string kval = key.ToString();
                 Console.WriteLine(kval);
                 newKeysDown.Add(kval);
-                if(!HeldKeys.Contains(kval)) {   
-                    PressedKeys.Add(kval);       
+                if(!HeldKeys.Contains(kval)) {
+                    Console.WriteLine(kval + " is not currently being held, but it is pressed");
+                    PressedKeys.Add(kval);
                     HeldKeys.Add(kval);          // technically it is held as it's pressed
+                    OnKeyPress(kval);
                 }
             }
             foreach(string kval in HeldKeys) {
                 if(!newKeysDown.Contains(kval)) {
                     LiftedKeys.Add(kval);
-                    HeldKeys.Remove(kval);       // remove keys that no longer are held
+                    OnKeyLift(kval);
                 }
             }
-            // here, we expect that KeysHeld is equal to newKeysDown
+            HeldKeys.RemoveWhere(x => !newKeysDown.Contains(x));
+            // here, we expect that HeldKeys is equal to newKeysDown
+        }
+
+        /// <summary>
+        /// NOTE! DO NOT USE: HeldKeys, PressedKeys, LiftedKeys IN THIS METHOD
+        /// THEY WILL NOT PROVIDE ACCURATE VALUES
+        /// </summary>
+        protected virtual string OnKeyPress(string key) {
+            return key;
+        }
+
+        /// <summary>
+        /// NOTE! DO NOT USE: HeldKeys, PressedKeys, LiftedKeys IN THIS METHOD
+        /// THEY WILL NOT PROVIDE ACCURATE VALUES
+        /// </summary>
+        protected virtual string OnKeyLift(string key) {
+            return key;
         }
     }
 }

@@ -13,6 +13,7 @@ namespace OctoType.Inputs {
 
         public override void Update() {
             base.Update();
+            
         }
     }
 }
