@@ -13,7 +13,11 @@ namespace OctoType.Inputs {
 
         public override void Update() {
             base.Update();
-            
+            // do checking validation for held keys etc.
+        }
+
+        protected override void OnKeyPress(string name) {
+            audio.PlaySoundEffect("hitsound.wav");
         }
     }
 }

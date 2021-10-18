@@ -47,16 +47,12 @@ namespace OctoType.Inputs {
         /// NOTE! DO NOT USE: HeldKeys, PressedKeys, LiftedKeys IN THIS METHOD
         /// THEY WILL NOT PROVIDE ACCURATE VALUES
         /// </summary>
-        protected virtual string OnKeyPress(string key) {
-            return key;
-        }
+        protected virtual void OnKeyPress(string key) { }
 
         /// <summary>
         /// NOTE! DO NOT USE: HeldKeys, PressedKeys, LiftedKeys IN THIS METHOD
         /// THEY WILL NOT PROVIDE ACCURATE VALUES
         /// </summary>
-        protected virtual string OnKeyLift(string key) {
-            return key;
-        }
+        protected virtual void OnKeyLift(string key) { }
     }
 }
