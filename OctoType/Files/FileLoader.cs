@@ -6,7 +6,7 @@ namespace OctoType.Files {
 
 	public abstract class FileLoader {
 
-		private Dictionary<String, Object> data;
+		protected Dictionary<String, Object> data;
 
 		public FileLoader() {
 			data = new Dictionary<String, Object>();
@@ -21,8 +21,15 @@ namespace OctoType.Files {
 		public void UnloadAllFiles() {
 			data.Clear();
         }
+
 		public Object GetFile(String name) {
-			return data[name];
+			try {
+				return data[name];
+			} catch(KeyNotFoundException ex) {
+				Console.WriteLine("ERR: GetFile line 26 " + name + " not found.");
+				Console.WriteLine(ex.ToString());
+				return null;
+            }
         }
 	}
 }
