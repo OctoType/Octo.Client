@@ -17,5 +17,18 @@ namespace OctoType.Images {
             Texture2D file = Texture2D.FromFile(graphics, path);
             data.Add(name, file);
         }
+
+        public override void UnloadFile(string name) {
+            Texture2D file = (Texture2D)data[name];
+            file.Dispose();
+            base.UnloadFile(name);
+        }
+
+        public override void UnloadAllFiles() {
+            foreach(string name in data.Keys) {
+                UnloadFile(name);
+            }
+            base.UnloadAllFiles();
+        }
     }
 }
