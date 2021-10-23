@@ -23,6 +23,7 @@ namespace OctoType.Screens {
             gameInputManager = new GameInputManager(_audio);
             _audio.LoadFile("song.ogg", "../../../../Charts/TestMap1/song.ogg");
             _audio.LoadFile("hitsound.wav", "../../../../Charts/TestMap1/hitsound.wav");
+            _images.LoadFile("background.jpg", "../../../../Charts/TestMap1/background.jpg");
             this.IsLoaded = true;
         }
 
@@ -37,6 +38,9 @@ namespace OctoType.Screens {
         }
 
         public override void Draw() {
+            _sprites.Begin();
+            _images.DrawImage("background.jpg", 0, 0, ref _sprites);
+            _sprites.End();
         }
 
         public override void Update() {
