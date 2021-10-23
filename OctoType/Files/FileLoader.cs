@@ -14,7 +14,7 @@ namespace OctoType.Files {
 
 		public abstract void LoadFile(String name, String path);
 
-		public virtual void UnloadFile(String name, String path) {
+		public virtual void UnloadFile(String name) {
 			data.Remove(name);
         }
 
