@@ -10,17 +10,15 @@ namespace OctoType.Screens {
         private AudioManager _audio;
         private ImageManager _images;
         private GameInputManager gameInputManager;
+        private SpriteBatch _sprites;
         private bool isPlaying = false;
 
         public TestScreen(GraphicsDevice grahpics) {
             _images = new ImageManager(grahpics);
+            _sprites = new SpriteBatch(grahpics);
         }
 
-        public override void Draw() {
-        }
-
-        public override void LoadContent()
-        {
+        public override void LoadContent() {
             _audio = new AudioManager();
             gameInputManager = new GameInputManager(_audio);
             _audio.LoadFile("song.ogg", "../../../../Charts/TestMap1/song.ogg");
@@ -36,6 +34,9 @@ namespace OctoType.Screens {
         }
 
         public override void OnSuspend() {
+        }
+
+        public override void Draw() {
         }
 
         public override void Update() {

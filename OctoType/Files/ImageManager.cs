@@ -19,7 +19,7 @@ namespace OctoType.Images {
         }
 
         public override void UnloadFile(string name) {
-            Texture2D file = (Texture2D)data[name];
+            Texture2D file = (Texture2D) data[name];
             file.Dispose();
             base.UnloadFile(name);
         }
@@ -29,6 +29,14 @@ namespace OctoType.Images {
                 UnloadFile(name);
             }
             base.UnloadAllFiles();
+        }
+
+        /// <summary>
+        /// Draws the image into spriteBatch, make sure that spriteBatch has already called begin
+        /// </summary>
+        public void DrawImage(string name, int x, int y, ref SpriteBatch spriteBatch) {
+            Texture2D file = (Texture2D) data[name];
+            spriteBatch.Draw(file, new Vector2(x, y), Color.White);
         }
     }
 }
