@@ -5,8 +5,7 @@ using OctoType.Inputs;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace OctoType.Screens {
-    public class TestScreen : Screen
-    {
+    public class TestScreen : Screen {
         private AudioManager _audio;
         private ImageManager _images;
         private GameInputManager gameInputManager;
@@ -24,14 +23,17 @@ namespace OctoType.Screens {
             _audio.LoadFile("song.ogg", "../../../../Charts/TestMap1/song.ogg");
             _audio.LoadFile("hitsound.wav", "../../../../Charts/TestMap1/hitsound.wav");
             _images.LoadFile("background.jpg", "../../../../Charts/TestMap1/background.jpg");
-            this.IsLoaded = true;
+            base.LoadContent();
         }
 
         public override void UnloadContent() {
-            this.IsLoaded = false;
+            _images.UnloadAllFiles();
+            _audio.UnloadAllFiles();
+            base.UnloadContent();
         }
 
         public override void OnExit() {
+            UnloadContent();
         }
 
         public override void OnSuspend() {
