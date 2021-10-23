@@ -34,9 +34,36 @@ namespace OctoType.Images {
         /// <summary>
         /// Draws the image into spriteBatch, make sure that spriteBatch has already called begin
         /// </summary>
-        public void DrawImage(string name, int x, int y, ref SpriteBatch spriteBatch) {
+        public void DrawImage(string name, Vector2 position, ref SpriteBatch spriteBatch) {
             Texture2D file = (Texture2D) data[name];
-            spriteBatch.Draw(file, new Vector2(x, y), Color.White);
+            spriteBatch.Draw(file, position, Color.White);
+        }
+
+        public void DrawImage(string name, Vector2 position, Vector2 targetDimensions, bool maintainProportions, ref SpriteBatch spriteBatch) {
+            Texture2D file = (Texture2D) data[name];
+            Vector2 scale = new Vector2(targetDimensions.X / file.Width,
+                                        targetDimensions.Y / file.Height);
+            if(maintainProportions) {
+                spriteBatch.Draw(file,
+                             position,                      // position
+                             null,                          // target area
+                             Color.White,                   // tint
+                             0,                             // rotation
+                             new Vector2(0, 0),             // point of rotation
+                             scale.Y,                       // scale
+                             SpriteEffects.None,            // sprite effects
+                             0);                            // layer depth
+            } else {
+                spriteBatch.Draw(file,
+                             position,                      // position
+                             null,                          // target area
+                             Color.White,                   // tint
+                             0,                             // rotation
+                             new Vector2(0, 0),             // point of rotation
+                             scale,                         // scale
+                             SpriteEffects.None,            // sprite effects
+                             0);                            // layer depth
+            }
         }
     }
 }

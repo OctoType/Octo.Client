@@ -2,6 +2,7 @@
 using OctoType.Audio;
 using OctoType.Images;
 using OctoType.Inputs;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace OctoType.Screens {
@@ -41,7 +42,11 @@ namespace OctoType.Screens {
 
         public override void Draw() {
             _sprites.Begin();
-            _images.DrawImage("background.jpg", 0, 0, ref _sprites);
+            _images.DrawImage("background.jpg",
+                              new Vector2(0,0),
+                              ScreenManager.Instance.Dimensions,
+                              true,
+                              ref _sprites);
             _sprites.End();
         }
 
