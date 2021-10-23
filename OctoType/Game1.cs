@@ -9,20 +9,20 @@ namespace OctoType {
 
     public class Game1 : Game {
 
-        private GraphicsDeviceManager _graphics;
+        public static GraphicsDeviceManager Graphics;
         private SpriteBatch _spriteBatch;
 
         public Game1() {
-            _graphics = new GraphicsDeviceManager(this);
+            Graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
 
         protected override void Initialize() {
             // TODO: Add your initialization logic here
-            _graphics.PreferredBackBufferWidth = (int)ScreenManager.Instance.Dimensions.X;
-            _graphics.PreferredBackBufferHeight = (int)ScreenManager.Instance.Dimensions.Y;
-            _graphics.ApplyChanges();
+            Graphics.PreferredBackBufferWidth = (int)ScreenManager.Instance.Dimensions.X;
+            Graphics.PreferredBackBufferHeight = (int)ScreenManager.Instance.Dimensions.Y;
+            Graphics.ApplyChanges();
 
             // TODO: This is for testing only, remove this line later
             ScreenManager.Instance.AddScreen(new TestScreen());
