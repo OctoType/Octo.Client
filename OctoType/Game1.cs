@@ -25,7 +25,8 @@ namespace OctoType {
             _graphics.ApplyChanges();
 
             // TODO: This is for testing only, remove this line later
-            ScreenManager.Instance.AddScreen(new TestScreen());
+            ScreenManager.Instance.AddScreen(new TestScreen(GraphicsDevice));
+
             base.Initialize();
         }
 

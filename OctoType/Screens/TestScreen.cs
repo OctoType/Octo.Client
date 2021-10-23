@@ -1,14 +1,20 @@
 ﻿using System;
 using OctoType.Audio;
+using OctoType.Images;
 using OctoType.Inputs;
-using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace OctoType.Screens {
     public class TestScreen : Screen
     {
         private AudioManager _audio;
+        private ImageManager _images;
         private GameInputManager gameInputManager;
         private bool isPlaying = false;
+
+        public TestScreen(GraphicsDevice grahpics) {
+            _images = new ImageManager(grahpics);
+        }
 
         public override void Draw() {
         }

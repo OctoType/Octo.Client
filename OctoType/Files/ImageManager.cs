@@ -3,14 +3,19 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using OctoType.Files;
 
-namespace OctoType.Files {
+namespace OctoType.Images {
 
     public class ImageManager : FileLoader {
 
-        public ImageManager() : base() { }
+        private GraphicsDevice graphics;
+
+        public ImageManager(GraphicsDevice graphics) : base() {
+            this.graphics = graphics;
+        }
 
         public override void LoadFile(string name, string path) {
-            throw new NotImplementedException();
+            Texture2D file = Texture2D.FromFile(graphics, path);
+            data.Add(name, file);
         }
     }
 }
