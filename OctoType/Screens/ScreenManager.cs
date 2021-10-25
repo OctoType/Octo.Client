@@ -25,7 +25,7 @@ namespace OctoType.Screens {
         private Stack<Screen> ScreenStack = new Stack<Screen>();
 
         public ScreenManager() {
-            Dimensions = new Vector2(800, 600);
+            Dimensions = new Vector2(1366, 768);
         }
 
         /// <summary>
@@ -40,8 +40,9 @@ namespace OctoType.Screens {
         /// Removes a screen from the top of all managed screens
         /// </summary>
         public void RemoveScreen() {
-            activeScreens.Remove(
-                ScreenStack.Pop());
+            Screen screen = ScreenStack.Pop();
+            screen.UnloadContent();
+            activeScreens.Remove(screen);
         }
 
         /// <summary>
