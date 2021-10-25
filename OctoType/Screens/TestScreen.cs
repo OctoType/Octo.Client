@@ -28,8 +28,8 @@ namespace OctoType.Screens {
         }
 
         public override void UnloadContent() {
-            _images.UnloadAllFiles();
-            _audio.UnloadAllFiles();
+            if(_images != null) _images.UnloadAllFiles();
+            if(_audio != null) _audio.UnloadAllFiles();
             base.UnloadContent();
         }
 

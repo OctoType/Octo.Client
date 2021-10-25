@@ -41,12 +41,9 @@ namespace OctoType.Screens {
         }
 
         public override void Draw() {
+            //background UI elements
             _sprites.Begin();
-            _images.DrawImage("background.jpg",
-                              new Vector2(0, 0),
-                              ScreenManager.Instance.Dimensions,
-                              true,
-                              ref _sprites);
+            
             _sprites.End();
         }
 

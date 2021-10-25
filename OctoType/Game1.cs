@@ -24,6 +24,8 @@ namespace OctoType {
 
             // TODO: This is for testing only, remove this line later
             ScreenManager.Instance.AddScreen(new TestScreen(GraphicsDevice));
+            ScreenManager.Instance.RemoveScreen();
+            ScreenManager.Instance.AddScreen(new GameScreen(GraphicsDevice));
 
             base.Initialize();
         }
