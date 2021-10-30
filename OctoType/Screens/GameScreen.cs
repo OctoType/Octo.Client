@@ -6,14 +6,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace OctoType.Screens {
-    public class TestScreen : Screen {
+    public class GameScreen : Screen {
         private AudioManager _audio;
         private ImageManager _images;
         private GameInputManager gameInputManager;
         private SpriteBatch _sprites;
         private bool isPlaying = false;
 
-        public TestScreen(GraphicsDevice grahpics) {
+        public GameScreen(GraphicsDevice grahpics) {
             _images = new ImageManager(grahpics);
             _sprites = new SpriteBatch(grahpics);
         }
@@ -28,8 +28,8 @@ namespace OctoType.Screens {
         }
 
         public override void UnloadContent() {
-            if(_images != null) _images.UnloadAllFiles();
-            if(_audio != null) _audio.UnloadAllFiles();
+            _images.UnloadAllFiles();
+            _audio.UnloadAllFiles();
             base.UnloadContent();
         }
 
@@ -41,17 +41,14 @@ namespace OctoType.Screens {
         }
 
         public override void Draw() {
+            //background UI elements
             _sprites.Begin();
-            _images.DrawImage("background.jpg",
-                              new Vector2(0,0),
-                              ScreenManager.Instance.Dimensions,
-                              true,
-                              ref _sprites);
+            
             _sprites.End();
         }
 
         public override void Update() {
-            if (!isPlaying) {
+            if(!isPlaying) {
                 isPlaying = true;
                 _audio.PlaySong("song.ogg");
             } else {

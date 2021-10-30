@@ -14,11 +14,11 @@ namespace OctoType.Files {
 
 		public abstract void LoadFile(String name, String path);
 
-		public void UnloadFile(String name, String path) {
+		public virtual void UnloadFile(String name) {
 			data.Remove(name);
         }
 
-		public void UnloadAllFiles() {
+		public virtual void UnloadAllFiles() {
 			data.Clear();
         }
 

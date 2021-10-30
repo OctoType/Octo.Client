@@ -15,6 +15,7 @@
     <None Remove="Utils\" />
     <None Remove="Screens\" />
     <None Remove="Files\" />
+    <None Remove="Inputs\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -34,5 +35,6 @@
     <Folder Include="Utils\" />
     <Folder Include="Screens\" />
     <Folder Include="Files\" />
+    <Folder Include="Inputs\" />
   </ItemGroup>
 </Project>

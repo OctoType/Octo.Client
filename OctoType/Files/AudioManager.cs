@@ -10,8 +10,7 @@ namespace OctoType.Audio {
 
         private static readonly string SONG = "song";
 
-        public AudioManager() : base() {
-        }
+        public AudioManager() : base() { }
 
         /// <summary>
         /// Load a file into the audio manager. Because this class supports both songs and sound effects

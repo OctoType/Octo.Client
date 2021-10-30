@@ -10,7 +10,6 @@ namespace OctoType {
     public class Game1 : Game {
 
         private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
 
         public Game1() {
             _graphics = new GraphicsDeviceManager(this);
@@ -19,20 +18,19 @@ namespace OctoType {
         }
 
         protected override void Initialize() {
-            // TODO: Add your initialization logic here
             _graphics.PreferredBackBufferWidth = (int)ScreenManager.Instance.Dimensions.X;
             _graphics.PreferredBackBufferHeight = (int)ScreenManager.Instance.Dimensions.Y;
             _graphics.ApplyChanges();
 
             // TODO: This is for testing only, remove this line later
-            ScreenManager.Instance.AddScreen(new TestScreen());
+            ScreenManager.Instance.AddScreen(new TestScreen(GraphicsDevice));
+            ScreenManager.Instance.RemoveScreen();
+            ScreenManager.Instance.AddScreen(new GameScreen(GraphicsDevice));
+
             base.Initialize();
         }
 
         protected override void LoadContent() {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            // TODO: use this.Content to load your game content here
             ScreenManager.Instance.LoadAllContent();
         }
 
@@ -40,7 +38,6 @@ namespace OctoType {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
             // Updating game time
             TimeUtils.Timer = (float)gameTime.TotalGameTime.TotalMilliseconds;
             ScreenManager.Instance.Update();
@@ -51,7 +48,6 @@ namespace OctoType {
         protected override void Draw(GameTime gameTime) {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
             ScreenManager.Instance.Draw();
             base.Draw(gameTime);
         }
