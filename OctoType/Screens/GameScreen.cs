@@ -14,7 +14,7 @@ namespace OctoType.Screens {
         private GameInputManager gameInputManager;
         private ChartManager chartManager;
         private SpriteBatch _sprites;
-        private bool isPlaying = false;
+        private int song = -1;
 
         public GameScreen(GraphicsDevice grahpics) {
             _images = new ImageManager(grahpics);
@@ -51,11 +51,10 @@ namespace OctoType.Screens {
         }
 
         public override void Update() {
-            if(!isPlaying) {
-                isPlaying = true;
-                _audio.PlaySong("song.ogg");
+            if(song == -1) {
+                song = _audio.PlaySong("song.ogg");
             } else {
-                Console.WriteLine(_audio.GetSongPosition());
+                Console.WriteLine(_audio.GetSongPosition(song));
             }
             gameInputManager.Update();
         }
