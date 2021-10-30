@@ -24,8 +24,8 @@ namespace OctoType {
 
             // TODO: This is for testing only, remove this line later
             ScreenManager.Instance.AddScreen(new TestScreen(GraphicsDevice));
-            ScreenManager.Instance.RemoveScreen();
-            ScreenManager.Instance.AddScreen(new GameScreen(GraphicsDevice));
+            //ScreenManager.Instance.RemoveScreen();
+            //ScreenManager.Instance.AddScreen(new GameScreen(GraphicsDevice));
 
             base.Initialize();
         }
@@ -39,7 +39,7 @@ namespace OctoType {
                 Exit();
 
             // Updating game time
-            TimeUtils.Timer = (float)gameTime.TotalGameTime.TotalMilliseconds;
+            TimeUtils.Timer = (float) gameTime.TotalGameTime.TotalMilliseconds;
             ScreenManager.Instance.Update();
 
             base.Update(gameTime);

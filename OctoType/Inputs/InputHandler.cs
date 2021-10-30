@@ -24,10 +24,8 @@ namespace OctoType.Inputs {
             LiftedKeys.Clear();
             foreach(Keys key in Keyboard.GetState().GetPressedKeys()) { 
                 string kval = key.ToString();
-                Console.WriteLine(kval);
                 newKeysDown.Add(kval);
                 if(!HeldKeys.Contains(kval)) {
-                    Console.WriteLine(kval + " is not currently being held, but it is pressed");
                     PressedKeys.Add(kval);
                     HeldKeys.Add(kval);          // technically it is held as it's pressed
                     OnKeyPress(kval);

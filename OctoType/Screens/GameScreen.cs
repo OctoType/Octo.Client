@@ -2,14 +2,17 @@
 using OctoType.Audio;
 using OctoType.Images;
 using OctoType.Inputs;
+using OctoType.Charts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace OctoType.Screens {
     public class GameScreen : Screen {
+
         private AudioManager _audio;
         private ImageManager _images;
         private GameInputManager gameInputManager;
+        private ChartManager chartManager;
         private SpriteBatch _sprites;
         private bool isPlaying = false;
 
@@ -20,10 +23,10 @@ namespace OctoType.Screens {
 
         public override void LoadContent() {
             _audio = new AudioManager();
+            chartManager = new ChartManager();
             gameInputManager = new GameInputManager(_audio);
-            _audio.LoadFile("song.ogg", "../../../../Charts/TestMap1/song.ogg");
-            _audio.LoadFile("hitsound.wav", "../../../../Charts/TestMap1/hitsound.wav");
-            _images.LoadFile("background.jpg", "../../../../Charts/TestMap1/background.jpg");
+
+            // TODO: load in data for the chart from chart manager
             base.LoadContent();
         }
 
