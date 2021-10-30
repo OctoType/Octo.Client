@@ -9,6 +9,7 @@ namespace OctoType.Screens {
     public class TestScreen : Screen {
         private AudioManager _audio;
         private ImageManager _images;
+        private Conductor conductor;
         private GameInputManager gameInputManager;
         private SpriteBatch _sprites;
         private bool isPlaying = false;
@@ -24,6 +25,8 @@ namespace OctoType.Screens {
             _audio.LoadFile("song.ogg", "../../../../Charts/TestMap1/song.ogg");
             _audio.LoadFile("hitsound.wav", "../../../../Charts/TestMap1/hitsound.wav");
             _images.LoadFile("background.jpg", "../../../../Charts/TestMap1/background.jpg");
+
+            conductor = new Conductor(120, (float) -1300, ref _audio);
             base.LoadContent();
         }
 
@@ -51,13 +54,13 @@ namespace OctoType.Screens {
         }
 
         public override void Update() {
-            if (!isPlaying) {
-                isPlaying = true;
-                _audio.PlaySong("song.ogg");
-            } else {
-                Console.WriteLine(_audio.GetSongPosition());
+            if (!conductor.IsPlaying) {
+                conductor.StartSong("song.ogg");
             }
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("song time: " + conductor.AdjustedSongTime);
             gameInputManager.Update();
+            conductor.UpdateSongTime();
         }
     }
 }

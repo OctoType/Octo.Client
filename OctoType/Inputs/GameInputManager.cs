@@ -1,5 +1,6 @@
 ﻿using System;
 using OctoType.Audio;
+using OctoType.Utils;
 
 namespace OctoType.Inputs {
 
@@ -16,7 +17,8 @@ namespace OctoType.Inputs {
             // do checking validation for held keys etc.
         }
 
-        protected override void OnKeyPress(string name) {
+        protected override void OnKeyPress(string key) {
+            Console.WriteLine("hit key " + key + " at time " +TimeUtils.Timer);
             audio.PlaySoundEffect("hitsound.wav");
         }
     }
