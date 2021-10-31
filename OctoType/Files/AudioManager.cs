@@ -35,9 +35,8 @@ namespace OctoType.Audio {
             if (StringUtils.Normalize(name).Contains(SONG)) {
                 Bass.ChannelPlay((int) data[name]);
                 return (int) data[name];
-                    }
-            else
-            {
+            }
+            else {
                 Console.WriteLine("ERR: line 31 AudioManager " + name + " is not a song.");
             }
             return -1;
@@ -57,17 +56,15 @@ namespace OctoType.Audio {
         }
 
         public float GetSongPosition(int song) {
-            return Bass.ChannelGetPosition(song);
+            return (float) Bass.ChannelBytes2Seconds(song, Bass.ChannelGetPosition(song)) * 1000;
         }
 
         public int PlaySoundEffect(string name) {
-            if (! StringUtils.Normalize(name).Contains(SONG))
-            {
+            if (! StringUtils.Normalize(name).Contains(SONG)) {
                 Bass.ChannelPlay((int) data[name]);
                 return (int) data[name];
             }
-            else
-            {
+            else {
                 Console.WriteLine("ERR: line 31 AudioManager " + name + " is not a sound effect.");
             }
             return -1;

@@ -26,7 +26,7 @@ namespace OctoType.Screens {
             _audio.LoadFile("hitsound.wav", "../../../../Charts/TestMap1/hitsound.wav");
             _images.LoadFile("background.jpg", "../../../../Charts/TestMap1/background.jpg");
 
-            conductor = new Conductor(120, (float) -1300, ref _audio);
+            conductor = new Conductor(120, 0, ref _audio);
             base.LoadContent();
         }
 
@@ -54,11 +54,12 @@ namespace OctoType.Screens {
         }
 
         public override void Update() {
-            if (!conductor.IsPlaying) {
+            if(!conductor.IsPlaying) {
                 conductor.StartSong("song.ogg");
+            } else {
+                Console.WriteLine("-----------------------------------------");
+                Console.WriteLine("song time: " + conductor.AdjustedSongTime);
             }
-            Console.WriteLine("-----------------------------------------");
-            Console.WriteLine("song time: " + conductor.AdjustedSongTime);
             gameInputManager.Update();
             conductor.UpdateSongTime();
         }

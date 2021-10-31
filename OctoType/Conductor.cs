@@ -20,9 +20,10 @@ namespace OctoType.Audio {
         public bool IsPlaying { private set; get; }
 
         private float lastReportedPlayheadPosition;
-        private float InternalStartTime;
+        private float previousFrameTime;
         private int barNum;
         private int songPlaying;
+        private int adjustmentFactor = 10;
 
         private AudioManager _audio;
 
@@ -39,17 +40,18 @@ namespace OctoType.Audio {
             IsPlaying = true;
             lastReportedPlayheadPosition = 0;
             songPlaying = _audio.PlaySong(name);
-            InternalStartTime = TimeUtils.Timer;
+            previousFrameTime = TimeUtils.Timer;
         }
         
         // call this every frame
         public void UpdateSongTime() {
-            SongTime = TimeUtils.Timer - InternalStartTime;
+            SongTime += TimeUtils.Timer - previousFrameTime;
+            previousFrameTime = TimeUtils.Timer;
             if(_audio.GetSongPosition(songPlaying) != lastReportedPlayheadPosition) {
                 lastReportedPlayheadPosition = _audio.GetSongPosition(songPlaying);
                 Console.Write("bad is now " + (lastReportedPlayheadPosition - (SongTime - Offset)));
                 Console.WriteLine(" UPDATE PLAYHEAD POSITION TO " +lastReportedPlayheadPosition);
-                //SongTime = (SongTime + lastReportedPlayheadPosition) / 2;
+                SongTime = (adjustmentFactor * SongTime + lastReportedPlayheadPosition) / (adjustmentFactor + 1);
             }
             AdjustedSongTime = SongTime - Offset;
         }
