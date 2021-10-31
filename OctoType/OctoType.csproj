@@ -16,6 +16,7 @@
     <None Remove="Screens\" />
     <None Remove="Files\" />
     <None Remove="Inputs\" />
+    <None Remove="libbass.dylib" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -37,5 +38,10 @@
     <Folder Include="Screens\" />
     <Folder Include="Files\" />
     <Folder Include="Inputs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="libbass.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>
