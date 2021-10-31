@@ -60,8 +60,8 @@ namespace OctoType.Screens {
                 Console.WriteLine("-----------------------------------------");
                 Console.WriteLine("song time: " + conductor.AdjustedSongTime);
             }
-            gameInputManager.Update();
             conductor.UpdateSongTime();
+            gameInputManager.Update();
         }
     }
 }

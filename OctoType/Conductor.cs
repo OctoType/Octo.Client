@@ -47,13 +47,15 @@ namespace OctoType.Audio {
         public void UpdateSongTime() {
             SongTime += TimeUtils.Timer - previousFrameTime;
             previousFrameTime = TimeUtils.Timer;
-            if(_audio.GetSongPosition(songPlaying) != lastReportedPlayheadPosition) {
+            if(Math.Abs(_audio.GetSongPosition(songPlaying) - lastReportedPlayheadPosition) > 1) {
                 lastReportedPlayheadPosition = _audio.GetSongPosition(songPlaying);
                 Console.Write("difference is now " + (lastReportedPlayheadPosition - (SongTime - Offset)));
                 Console.WriteLine(" UPDATED PLAYHEAD POSITION TO " +lastReportedPlayheadPosition);
 
                 // averaging SongTime and playhead position for correction
-                SongTime = (adjustmentFactor * SongTime + lastReportedPlayheadPosition) / (adjustmentFactor + 1);
+                SongTime = (SongTime + adjustmentFactor * lastReportedPlayheadPosition) / (adjustmentFactor + 1);
+                Console.WriteLine("Corrected for difference: " + SongTime);
+                Console.WriteLine("difference is now " + (lastReportedPlayheadPosition - (SongTime - Offset)));
             }
             AdjustedSongTime = SongTime - Offset;
         }
