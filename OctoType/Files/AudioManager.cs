@@ -1,8 +1,7 @@
 ﻿using System;
 using OctoType.Files;
 using OctoType.Utils;
-using Microsoft.Xna.Framework.Media;
-using Microsoft.Xna.Framework.Audio;
+using ManagedBass;
 
 namespace OctoType.Audio {
 
@@ -10,7 +9,9 @@ namespace OctoType.Audio {
 
         private static readonly string SONG = "song";
 
-        public AudioManager() : base() { }
+        public AudioManager() : base() {
+            Bass.Init();
+        }
 
         /// <summary>
         /// Load a file into the audio manager. Because this class supports both songs and sound effects
@@ -19,49 +20,54 @@ namespace OctoType.Audio {
         /// - Additionally, song file names must match the file name (recommended to be song.ogg)
         /// - sound effect files **MUST NOT** contain song, otherwise they will be loaded as songs
         /// </summary>
-        public override void LoadFile(string name, string path) {
-            if(StringUtils.Normalize(name).Contains(SONG)) {
-                Console.WriteLine("loading SONG, " + name);
-                Uri uri = new Uri(path, UriKind.Relative);
-                Song song = Song.FromUri(name, uri);
-                data.Add(name, song);
-            } else {
-                Console.WriteLine("loading SOUND EFFECT, " + name);
-                SoundEffect soundEffect = SoundEffect.FromFile(path);
-                data.Add(name, soundEffect);
-            }
-            
+        public override void LoadFile(string name, string path)
+        {
+            Console.WriteLine("loading file: " + name);
+            Uri uri = new Uri(path, UriKind.Relative);
+            int fileAudioStream = Bass.CreateStream(uri.ToString());
+            data.Add(name, fileAudioStream);
         }
 
         /// <summary>
         /// Plays a song with name. The name MUST contain song 
         /// </summary>
-        public void PlaySong(string name) {
-            if(StringUtils.Normalize(name).Contains(SONG))
-                MediaPlayer.Play((Song)data[name]);
+        public int PlaySong(string name) {
+            if (StringUtils.Normalize(name).Contains(SONG)) {
+                Bass.ChannelPlay((int) data[name]);
+                return (int) data[name];
+            }
             else {
                 Console.WriteLine("ERR: line 31 AudioManager " + name + " is not a song.");
             }
+            return -1;
         }
         
-        public void PauseSong() {
-            MediaPlayer.Pause();
+        public void PauseSong(int song) {
+            Bass.ChannelPause(song);
         }
 
-        public void StopSong() {
-            MediaPlayer.Stop();
+        public void StopSong(int song)
+        {
+            Bass.ChannelStop(song);
         }
 
-        public void ResumeSong() {
-            MediaPlayer.Resume();
+        public void ResumeSong(int song) {
+            Bass.ChannelPlay(song);
         }
 
-        public float GetSongPosition() {
-            return (float) MediaPlayer.PlayPosition.TotalMilliseconds;
+        public float GetSongPosition(int song) {
+            return (float) Bass.ChannelBytes2Seconds(song, Bass.ChannelGetPosition(song)) * 1000;
         }
-        public void PlaySoundEffect(string name) {
-            SoundEffect soundEffect = (SoundEffect) data[name];
-            soundEffect.Play();
+
+        public int PlaySoundEffect(string name) {
+            if (! StringUtils.Normalize(name).Contains(SONG)) {
+                Bass.ChannelPlay((int) data[name]);
+                return (int) data[name];
+            }
+            else {
+                Console.WriteLine("ERR: line 31 AudioManager " + name + " is not a sound effect.");
+            }
+            return -1;
         }
     }
 }

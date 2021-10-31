@@ -16,6 +16,7 @@
     <None Remove="Screens\" />
     <None Remove="Files\" />
     <None Remove="Inputs\" />
+    <None Remove="libbass.dylib" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -28,6 +29,7 @@
     <TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="ManagedBass" Version="3.1.0" />
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
   </ItemGroup>
@@ -36,5 +38,10 @@
     <Folder Include="Screens\" />
     <Folder Include="Files\" />
     <Folder Include="Inputs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="libbass.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>
