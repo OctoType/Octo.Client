@@ -22,7 +22,7 @@ namespace OctoType.Screens {
         public override void LoadContent() {
             _audio = new AudioManager();
             gameInputManager = new GameInputManager(_audio);
-            _audio.LoadFile("song.ogg", "../../../../Charts/TestMap1/song.ogg");
+            _audio.LoadFile("song.ogg", "../../../../Charts/TestMap1/song.mp3");
             _audio.LoadFile("hitsound.wav", "../../../../Charts/TestMap1/hitsound.wav");
             _images.LoadFile("background.jpg", "../../../../Charts/TestMap1/background.jpg");
 
