@@ -1,0 +1,31 @@
+AudioFile: 
+SongPreviewTime:
+BackgroundFile:
+Title:
+Artist:
+Source:
+Tags:
+Creator:
+DifficultyName:
+Description:
+Bpm:
+Offset:
+HitObjects:
+- StartTime: 1000.00
+  Key: 'B'
+- StartTime: 2000.00
+  Key: 'JD'
+- StartTime: 3000.00
+  Key: 'WERJKL'
+- StartTime: 4000.00
+  Key: 'ZO'
+  EndTime: 5000.00
+- StartTime: 6000.00
+  Key: 'I'
+- StartTime: 6300.00
+  Key: 'S'
+- StartTime: 6700.00
+  Key: 'G"
+- StartTime: 7000.00
+  Key: 'Z>'
+  EndTime: 1000.00
