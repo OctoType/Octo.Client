@@ -1,14 +1,14 @@
-AudioFile: 
-SongPreviewTime:
-BackgroundFile:
-Title:
-Artist:
-Source:
-Tags:
-Creator:
-DifficultyName:
-Description:
-Bpm:
+AudioFile: chart.mp3
+SongPreviewTime: 500.00
+BackgroundFile: background.jpg
+Title: A little sweet
+Artist: some chinese person
+Source: n/a
+Tags: beginner insane expert easy michael
+Creator: Michael
+DifficultyName: insanity
+Description: test map
+Bpm: 115
 Offset:
 HitObjects:
 - StartTime: 1000.00
@@ -28,4 +28,4 @@ HitObjects:
   Key: 'G"
 - StartTime: 7000.00
   Key: 'Z>'
-  EndTime: 1000.00
+  EndTime: 10000.00

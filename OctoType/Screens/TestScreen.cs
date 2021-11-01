@@ -22,7 +22,7 @@ namespace OctoType.Screens {
         public override void LoadContent() {
             _audio = new AudioManager();
             gameInputManager = new GameInputManager(_audio);
-            _audio.LoadFile("song.ogg", "../../../../Charts/TestMap1/song.mp3");
+            _audio.LoadFile("song.wav", "../../../../Charts/TestMap1/song.wav");
             _audio.LoadFile("hitsound.wav", "../../../../Charts/TestMap1/hitsound.wav");
             _images.LoadFile("background.jpg", "../../../../Charts/TestMap1/background.jpg");
 
@@ -55,7 +55,7 @@ namespace OctoType.Screens {
 
         public override void Update() {
             if(!conductor.IsPlaying) {
-                conductor.StartSong("song.ogg");
+                conductor.StartSong("song.wav");
             } else {
                 Console.WriteLine("-----------------------------------------");
                 Console.WriteLine("song time: " + conductor.AdjustedSongTime);
