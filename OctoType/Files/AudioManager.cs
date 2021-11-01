@@ -73,7 +73,7 @@ namespace OctoType.Audio {
         public int PlaySoundEffect(string name) {
             if (! StringUtils.Normalize(name).Contains(SONG)) {
                 SoundEffect soundEffect = (SoundEffect) data[name];
-                soundEffect.Play();
+                soundEffect.Play(0.3f, 0f, 0f);
             }
             else {
                 Console.WriteLine("ERR: line 31 AudioManager " + name + " is not a sound effect.");
