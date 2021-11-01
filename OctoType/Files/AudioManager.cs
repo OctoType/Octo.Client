@@ -2,6 +2,8 @@
 using OctoType.Files;
 using OctoType.Utils;
 using ManagedBass;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 
 namespace OctoType.Audio {
 
@@ -22,10 +24,19 @@ namespace OctoType.Audio {
         /// </summary>
         public override void LoadFile(string name, string path)
         {
-            Console.WriteLine("loading file: " + name);
             Uri uri = new Uri(path, UriKind.Relative);
-            int fileAudioStream = Bass.CreateStream(uri.ToString());
-            data.Add(name, fileAudioStream);
+            if (StringUtils.Normalize(name).Contains(SONG))
+            {
+                Console.WriteLine("loading SONG: " + name);
+                int fileAudioStream = Bass.CreateStream(uri.ToString());
+                data.Add(name, fileAudioStream);
+            }
+            else
+            {
+                Console.WriteLine("loading SOUND EFFECT, " + name);
+                SoundEffect soundEffect = SoundEffect.FromFile(path);
+                data.Add(name, soundEffect);
+            }
         }
 
         /// <summary>
@@ -61,8 +72,8 @@ namespace OctoType.Audio {
 
         public int PlaySoundEffect(string name) {
             if (! StringUtils.Normalize(name).Contains(SONG)) {
-                Bass.ChannelPlay((int) data[name]);
-                return (int) data[name];
+                SoundEffect soundEffect = (SoundEffect) data[name];
+                soundEffect.Play(0.3f, 0f, 0f);
             }
             else {
                 Console.WriteLine("ERR: line 31 AudioManager " + name + " is not a sound effect.");
