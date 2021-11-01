@@ -11,21 +11,21 @@ Description: test map
 Bpm: 115
 Offset:
 HitObjects:
-- StartTime: 1000.00
+- StartTime: 521.739130435
   Key: 'B'
-- StartTime: 2000.00
+- StartTime: 1043.47826087
   Key: 'JD'
-- StartTime: 3000.00
+- StartTime: 1565.2173913
   Key: 'WERJKL'
-- StartTime: 4000.00
+- StartTime: 2086.95652174
   Key: 'ZO'
-  EndTime: 5000.00
-- StartTime: 6000.00
+  EndTime: 2608.69565217
+- StartTime: 2608.69565217
   Key: 'I'
-- StartTime: 6300.00
+- StartTime: 3130.43478261
   Key: 'S'
-- StartTime: 6700.00
+- StartTime: 3652.17391304
   Key: 'G"
-- StartTime: 7000.00
+- StartTime: 4173.91304348
   Key: 'Z>'
-  EndTime: 10000.00
+  EndTime: 4695.65217391
