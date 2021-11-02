@@ -14,7 +14,7 @@ namespace OctoType.Charts {
         ///     }
         /// }
         /// </summary>
-        public Dictionary<string, Queue<Note>> Notes { get; private set; }
+        internal Dictionary<string, Queue<Note>> Notes { get; private set; }
         public string AudioFile { get; private set; }
         public float SongPreviewTime { get; private set; }
         public string BackgroundFile { get; private set; }
@@ -28,7 +28,7 @@ namespace OctoType.Charts {
         public float Offset { get; private set; }
 
         public Chart(string path) {
-            //read in the data from path
+            // TODO: read in the data from path
         }
     }
 }

@@ -1,25 +1,27 @@
 ﻿using System;
-
+using System.Collections.Generic;
 using OctoType.Files;
 
 namespace OctoType.Charts {
 
     public class ChartManager : FileLoader {
 
-        private string InMemoryName;
+        private string SelectedChart;
+        private Dictionary<string, Queue<Note>> InMemoryNotes;
 
         /// <summary>
-        /// Reads a chart into memory and selects it as the current chart
+        /// Reads a chart into memory
         /// </summary>
         public override void LoadFile(string name, string path) {
             data[name] = new Chart(path);
         }
 
-        /// <summary>
-        /// Returns the background path for the currently selected chart
-        /// </summary>
+        public void SelectChart(string name) {
+            Chart chart = (Chart) data[SelectedChart];
+            InMemoryNotes = chart.Notes;
+        }
         public Chart GetLoadedChart() {
-            return (Chart) data[InMemoryName];
+            return (Chart) data[SelectedChart];
         }
     }
 }
