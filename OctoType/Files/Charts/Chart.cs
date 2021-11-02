@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace OctoType.Charts {
 
-    internal class Chart {
+    public class Chart {
 
         /// <summary>
         /// In memory chart can be interpreted to be structure as such:
@@ -14,22 +14,21 @@ namespace OctoType.Charts {
         ///     }
         /// }
         /// </summary>
-        internal Dictionary<string, Queue<Note>> Notes { get; private set; }
-        internal string AudioFile { get; private set; }
-        internal float SongPreviewTime { get; private set; }
-        internal string BackgroundFile { get; private set; }
-        internal string Title { get; private set; }
-        internal string Artist { get; private set; }
-        internal string Source { get; private set; }
-        internal List<string> Tags { get; private set; }
-        internal string Creator { get; private set; }
-        internal string Difficulty { get; private set; }
-        internal float Bpm { get; private set; }
-        internal float Offset { get; private set; }
+        public Dictionary<string, Queue<Note>> Notes { get; private set; }
+        public string AudioFile { get; private set; }
+        public float SongPreviewTime { get; private set; }
+        public string BackgroundFile { get; private set; }
+        public string Title { get; private set; }
+        public string Artist { get; private set; }
+        public string Source { get; private set; }
+        public List<string> Tags { get; private set; }
+        public string Creator { get; private set; }
+        public string Difficulty { get; private set; }
+        public float Bpm { get; private set; }
+        public float Offset { get; private set; }
 
-        internal Chart(string path) {
-
+        public Chart(string path) {
+            //read in the data from path
         }
-
     }
 }
