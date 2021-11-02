@@ -18,6 +18,7 @@
     <None Remove="Inputs\" />
     <None Remove="libbass.dylib" />
     <None Remove="Files\Charts\" />
+    <None Remove="Timing\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -40,6 +41,7 @@
     <Folder Include="Files\" />
     <Folder Include="Inputs\" />
     <Folder Include="Files\Charts\" />
+    <Folder Include="Timing\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="libbass.dylib">
