@@ -13,6 +13,8 @@ namespace OctoType {
 
         public Game1() {
             _graphics = new GraphicsDeviceManager(this);
+            _graphics.SynchronizeWithVerticalRetrace = false; //Vsync
+            IsFixedTimeStep = false;                          //sync Draws to update
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }

@@ -53,13 +53,18 @@ namespace OctoType.Screens {
             _sprites.End();
         }
 
+        private float lastFrameTime = 0;
+
         public override void Update() {
+            
             if(!conductor.IsPlaying) {
                 conductor.StartSong("song.wav");
             } else {
                 Console.WriteLine("-----------------------------------------");
                 Console.WriteLine("song time: " + conductor.AdjustedSongTime);
+                Console.WriteLine("Update Time: " + (conductor.AdjustedSongTime - lastFrameTime));
             }
+            lastFrameTime = conductor.AdjustedSongTime;
             conductor.UpdateSongTime();
             gameInputManager.Update();
         }
