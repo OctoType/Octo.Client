@@ -1,7 +1,11 @@
 ﻿using System;
-namespace OctoType.Files.Charts {
+
+namespace OctoType.Timing {
+
     public class TimingChecker {
+
         public TimingChecker() {
         }
+
     }
 }
