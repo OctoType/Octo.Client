@@ -7,9 +7,11 @@ namespace OctoType.Inputs {
     public class GameInputManager : InputHandler {
 
         private AudioManager audio;
+        private Conductor conductor;
 
-        public GameInputManager(AudioManager audio) {
+        public GameInputManager(ref AudioManager audio, ref Conductor conductor) {
             this.audio = audio;
+            this.conductor = conductor;
         }
 
         public override void Update() {
