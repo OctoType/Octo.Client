@@ -4,7 +4,7 @@ namespace OctoType.Timing {
 
     public static class TimingChecker {
 
-        public static Timings checkTiming(float actionTime, float targetTime) {
+        public static Timings CheckTiming(float actionTime, float targetTime) {
             float diff = Math.Abs(actionTime - targetTime);
             if(diff <= (float) Timings.MARVELOUS) {
                 return Timings.MARVELOUS;
