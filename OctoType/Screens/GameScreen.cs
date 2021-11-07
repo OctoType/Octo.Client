@@ -24,7 +24,8 @@ namespace OctoType.Screens {
         public override void LoadContent() {
             _audio = new AudioManager();
             chartManager = new ChartManager();
-            gameInputManager = new GameInputManager(_audio);
+            Conductor conductor = new Conductor(115, 0, ref _audio);
+            gameInputManager = new GameInputManager(ref _audio, ref conductor);
 
             // TODO: load in data for the chart from chart manager
             base.LoadContent();

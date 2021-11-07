@@ -1,0 +1,31 @@
+AudioFile: chart.mp3
+SongPreviewTime: 500.00
+BackgroundFile: background.jpg
+Title: A little sweet
+Artist: some chinese person
+Source: n/a
+Tags: beginner insane expert easy michael
+Creator: Michael
+DifficultyName: insanity
+Description: test map
+Bpm: 115
+Offset: 0
+HitObjects:
+- StartTime: 521.739130435
+  Key: 'B'
+- StartTime: 1043.47826087
+  Key: 'JD'
+- StartTime: 1565.2173913
+  Key: 'WERJKL'
+- StartTime: 2086.95652174
+  Key: 'ZO'
+  EndTime: 2608.69565217
+- StartTime: 2608.69565217
+  Key: 'I'
+- StartTime: 3130.43478261
+  Key: 'S'
+- StartTime: 3652.17391304
+  Key: 'G"
+- StartTime: 4173.91304348
+  Key: 'Z>'
+  EndTime: 4695.65217391
