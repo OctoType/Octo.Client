@@ -5,6 +5,7 @@ namespace OctoType.Timing {
         PERFECT = 8,
         GREAT = 12,
         GOOD = 18,
-        BAD = 22
+        BAD = 22,
+        MISS = 0
     }
 }
